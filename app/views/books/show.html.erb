@@ -1,2 +1,11 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h2><%= @book[:title] %></h2>
+
+<section>
+  <p>
+    <span class="title">Author: </span>
+    <%= @book[:author] %>
+  </p>
+  <p>
+    <span class="title">Description:</span> <br /> <%= @book[:description] %>
+  </p>
+</section>
