@@ -1,11 +1,19 @@
-<h2><%= @book[:title] %></h2>
+<h2><%= @book.title %></h2>
 
 <section>
   <p>
     <span class="title">Author: </span>
-    <%= @book[:author] %>
+    <%= @book.author.name %>
   </p>
   <p>
-    <span class="title">Description:</span> <br /> <%= @book[:description] %>
+    <span class="title">Description:</span> <br /> <%= @book.description %>
   </p>
+  <ul class="edit-delete">
+    <li>
+      <%= link_to "Edit", edit_book_path %>
+    </li>
+    <li>
+      <%= link_to "Delete", book_path(@book.id), method: :delete %>
+    </li>
+  </ul>
 </section>

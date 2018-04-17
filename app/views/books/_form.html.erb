@@ -1,0 +1,25 @@
+<h2 class="my class"> <%= page_title %></h2>
+
+<% if @book.errors.any? %>
+  <ul class="errors">
+    <% @book.errors.each do |field, message| %>
+      <li>
+        <strong><%= field.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.select :author_id, Author.all.map { |author| [author.name, author.id] } %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>

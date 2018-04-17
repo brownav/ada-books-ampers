@@ -3,11 +3,51 @@
   <head>
     <title>AdaBooksAmpers</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Home", books_path %>
+        </li>
+        <li>
+          <%= link_to "Add a book", new_book_path %>
+        </li>
+          <% if @user %>
+        <li>
+          Welcome <%= @user.name %>
+          <%= link_to "Logout", logout_path, method: :destroy %>
+        </li>
+        <% else %>
+          <%= link_to "Login with GitHub", github_login_path %>
+          <% end %>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+      <section class="callout <%= name %>">
+        <% if name == "alert" %>
+        <ul>
+          <% flash[:alert].each do |field, message| %>
+          <li>
+            <strong><%= field %>: </strong>
+            <%= message %>
+          </li>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>
+          <%= message %>
+        </p>
+        <% end %>
+    </section>
+    <% end %>
+  </main>
   <body>
     <%= yield %>
   </body>

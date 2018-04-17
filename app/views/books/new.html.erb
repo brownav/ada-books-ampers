@@ -1,2 +1,46 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<!-- <h1>Create a New Book</h1> -->
+
+<%=render partial: "form", locals: { page_title: "Add a Book"} %>
+<!-- <%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %> -->
+
+<!--
+<form action="/books" method="post">
+
+  <label for="tile">Title:</label>
+  <input name="title" value="" id="title" type="text" /><br />
+
+  <label for="author">Author:</label>
+  <input name="author" id="author" type="text"  /><br />
+
+  <label for="description">Description:</label>
+  <textarea name="description" id="description"></textarea><br />
+
+  <input name="submit" type="submit" /><br />
+
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"/>
+
+  EMAIL TEST -->
+  <!-- <label for="emailAddress">Email:</label>
+  <input id="emailAddress" type="email"><br /> -->
+
+  <!-- FILE TEST-->
+  <!-- <label for="myFile">Add File:</label>
+  <input name="myFile" type="file"> -->
+
+  <!-- HIDDEN -->
+
+  <!-- <input id="prodId" name="prodId" type="hidden" value="xm234jq"> -->
+
+<!-- </form> -->
